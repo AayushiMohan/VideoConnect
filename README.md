@@ -143,4 +143,3 @@ Everyone sees and chats with everyone ✅
 <div align="center">
   Built by <a href="https://linkedin.com/in/aayushimohan/">Aayushi Mohan</a> — Free to use, open source 🚀
 </div>
----
