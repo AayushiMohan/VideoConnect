@@ -85,6 +85,17 @@ function Room({ roomId, username, onLeave }) {
           Copy
         </button>
       </div>
+      <div className="invite-section">
+  <button
+    className="invite-btn"
+    onClick={() => {
+      navigator.clipboard.writeText(roomId);
+      alert("Invite code copied!");
+    }}
+  >
+    📋 Copy Invite Code
+  </button>
+</div>
 
       {/* Meeting Timer */}
       <div className="meeting-timer">
