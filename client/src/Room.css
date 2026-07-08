@@ -95,6 +95,9 @@
 .chat-btn:hover {
   background: #1557b0;
 }
+.chat-open{
+  right:360px;
+}
 
 /* LiveKit Styling */
 
