@@ -131,3 +131,10 @@
 .send-btn:hover {
   background: #1557b0;
 }
+.system-message{
+  text-align:center;
+  color:#9aa0a6;
+  font-size:12px;
+  margin:10px 0;
+  font-style:italic;
+}
