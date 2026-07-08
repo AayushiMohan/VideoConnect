@@ -42,9 +42,9 @@ function App() {
     <div className="home-container">
       <div className="glass-card">
 
-        <div className="logo">🎥</div>
+        <div className="logo">VC</div>
         <h1 className="title">VideoConnect</h1>
-        <p className="subtitle">HD video calls for everyone, instantly</p>
+        <p className="subtitle">Connect, collaborate and communicate with secure HD video meetings</p>
 
         <div className="two-col">
 
@@ -87,24 +87,12 @@ function App() {
 
         </div>
 
-        <div className="features">
-          <div className="feature-item">
-            <span>🔒</span>
-            <span>Secure</span>
-          </div>
-          <div className="feature-item">
-            <span>⚡</span>
-            <span>Fast</span>
-          </div>
-          <div className="feature-item">
-            <span>👥</span>
-            <span>50 Users</span>
-          </div>
-          <div className="feature-item">
-            <span>🌐</span>
-            <span>HD Video</span>
-          </div>
-        </div>
+       <div className="features">
+       <div className="feature-item">HD Video</div>
+       <div className="feature-item">Screen Share</div>
+       <div className="feature-item">Real-time Chat</div>
+       <div className="feature-item">50 Participants</div>
+      </div>
 
       </div>
     </div>
