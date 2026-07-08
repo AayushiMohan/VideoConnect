@@ -13,7 +13,7 @@ function Room({ roomId, username, onLeave }) {
   const [error, setError] = useState(null);
   const [showChat, setShowChat] = useState(false);
   const [seconds, setSeconds] = useState(0);
-
+  const [participantCount, setParticipantCount] = useState(1)
   const copyRoomCode = () => {
     navigator.clipboard.writeText(roomId);
     alert("Room code copied!");
