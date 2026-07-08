@@ -31,60 +31,29 @@ function Room({ roomId, username, onLeave }) {
   }, [roomId, username])
 
   if (error) return (
-    <div style={{ textAlign: "center", marginTop: "100px", color: "red" }}>
+    <div className="error-screen">
       {error}
     </div>
   )
 
   if (!token) return (
-    <div style={{ textAlign: "center", marginTop: "100px", color: "white" }}>
+    <div className="loading-screen">
       Connecting to room...
     </div>
   )
 
   return (
-    <div style={{ height: "100vh", position: "relative" }}>
+    <div className="room-wrapper">
 
-      {/* Chat toggle button */}
-      <button
-        onClick={() => setShowChat(!showChat)}
-        style={{
-          position: "fixed",
-          bottom: "30px",
-          right: showChat ? "320px" : "30px",
-          zIndex: 1001,
-          background: "linear-gradient(135deg, #7c6ff7, #5b4fcf)",
-          color: "white",
-          border: "none",
-          borderRadius: "50px",
-          padding: "12px 20px",
-          fontSize: "14px",
-          fontWeight: "600",
-          cursor: "pointer",
-          boxShadow: "0 5px 20px rgba(124, 111, 247, 0.4)",
-          transition: "all 0.3s ease"
-        }}
-      >
-        {showChat ? "✕ Close Chat" : "💬 Chat"}
-      </button>
-
-      {/* Room ID display */}
-      <div style={{
-        position: "fixed",
-        top: "15px",
-        left: "50%",
-        transform: "translateX(-50%)",
-        zIndex: 1001,
-        background: "rgba(0,0,0,0.5)",
-        backdropFilter: "blur(10px)",
-        color: "white",
-        padding: "8px 20px",
-        borderRadius: "50px",
-        fontSize: "13px",
-        border: "1px solid rgba(255,255,255,0.1)"
-      }}>
-        🔗 Room Code: <strong>{roomId}</strong>
-      </div>
+     <button
+  className="chat-btn"
+  onClick={() => setShowChat(!showChat)}
+>
+  {showChat ? "✕ Close Chat" : "💬 Chat"}
+</button>
+<div className="room-code">
+  🔗 Room Code: <strong>{roomId}</strong>
+</div>
 
       <LiveKitRoom
         token={token}
