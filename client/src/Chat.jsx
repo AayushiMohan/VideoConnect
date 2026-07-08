@@ -25,13 +25,14 @@ function Chat({ roomId, username, onClose }) {
     username: username
    })
 
-    socket.on("receive-message", ({ message, sender }) => {
+    socket.on("system-message", ({ text }) => {
       setMessages((prev) => [
         ...prev,
         {
-          message,
-          sender,
+          message: text,
+          sender: "System",
           time: getCurrentTime(),
+          system: true,
         },
       ]);
     });
