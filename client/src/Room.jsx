@@ -92,12 +92,14 @@ function Room({ roomId, username, onLeave }) {
       </div>
 
       {/* Chat Button */}
-      <button
-        className="chat-btn"
-        onClick={() => setShowChat(!showChat)}
-      >
-        {showChat ? "✕ Close Chat" : "💬 Chat"}
-      </button>
+     <button
+  className={`chat-btn ${
+    showChat ? "chat-open" : ""
+  }`}
+  onClick={() => setShowChat(!showChat)}
+>
+  {showChat ? "✕ Close Chat" : "💬 Chat"}
+</button>
 
       <LiveKitRoom
         token={token}
