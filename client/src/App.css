@@ -36,15 +36,11 @@ body {
   width: 70px;
   height: 70px;
   margin: 0 auto 16px;
-
   border-radius: 18px;
-
   background: #1a73e8;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   color: white;
   font-weight: 700;
   font-size: 24px;
@@ -58,7 +54,13 @@ body {
   text-align: center;
   width: 100%;
 }
+.logo {
+  margin: 0 auto 16px;
+}
 
+.title {
+  text-align: center;
+}
 .subtitle {
   color: #bdc1c6;
   font-size: 16px;
