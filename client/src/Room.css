@@ -1,0 +1,91 @@
+.room-wrapper{
+  height:100vh;
+  position:relative;
+  background:#202124;
+}
+
+.chat-btn{
+  position:fixed;
+  bottom:24px;
+  right:24px;
+
+  z-index:1001;
+
+  background:#1a73e8;
+  color:white;
+
+  border:none;
+
+  border-radius:50px;
+
+  padding:12px 20px;
+
+  font-size:14px;
+
+  font-weight:600;
+
+  cursor:pointer;
+
+  box-shadow:0 6px 20px rgba(26,115,232,.35);
+
+  transition:.3s;
+}
+
+.chat-btn:hover{
+  background:#1557b0;
+}
+
+.room-code{
+  position:fixed;
+
+  top:16px;
+  left:50%;
+
+  transform:translateX(-50%);
+
+  z-index:1001;
+
+  background:#2d2e30;
+
+  border:1px solid #3c4043;
+
+  color:white;
+
+  padding:10px 20px;
+
+  border-radius:999px;
+
+  font-size:13px;
+}
+
+.loading-screen{
+  height:100vh;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  color:white;
+
+  font-size:18px;
+
+  background:#202124;
+}
+
+.error-screen{
+  height:100vh;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  color:#ff6b6b;
+
+  font-size:18px;
+
+  background:#202124;
+}
