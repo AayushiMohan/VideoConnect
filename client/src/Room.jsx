@@ -13,7 +13,7 @@ function Room({ roomId, username, onLeave }) {
   const [error, setError] = useState(null);
   const [showChat, setShowChat] = useState(false);
   const [seconds, setSeconds] = useState(0);
-  const [participantCount, setParticipantCount] = useState(1)
+
   const copyRoomCode = () => {
     navigator.clipboard.writeText(roomId);
     alert("Room code copied!");
@@ -71,55 +71,57 @@ function Room({ roomId, username, onLeave }) {
       </div>
     );
 
-  return (
-    <div className="room-wrapper">
+return (
+  <div className="room-wrapper">
 
-      {/* Room Code */}
-      <div className="room-code">
-        <span>🔗 {roomId}</span>
+    {/* Room Code */}
+    <div className="room-code">
+      <span>🔗 {roomId}</span>
 
-        <button
-          className="copy-btn"
-          onClick={copyRoomCode}
-        >
-          Copy
-        </button>
-      </div>
-
-      {/* Meeting Timer */}
-      <div className="meeting-timer">
-        ⏱ {formatTime(seconds)}
-      </div>
-
-      {/* Chat Button */}
-      {!showChat && (
-  <button
-    className="chat-btn"
-    onClick={() => setShowChat(true)}
-  >
-    💬 Chat
-  </button>
-)}
-      <LiveKitRoom
-        token={token}
-        serverUrl={url}
-        connect={true}
-        video={true}
-        audio={true}
-        onDisconnected={onLeave}
+      <button
+        className="copy-btn"
+        onClick={copyRoomCode}
       >
-        <VideoConference />
-      </LiveKitRoom>
-
-      {showChat && (
-        <Chat
-          roomId={roomId}
-          username={username}
-          onClose={() => setShowChat(false)}
-        />
-      )}
+        Copy
+      </button>
     </div>
-  );
+
+    {/* Meeting Timer */}
+    <div className="meeting-timer">
+      ⏱ {formatTime(seconds)}
+    </div>
+
+    {/* Chat Button */}
+    {!showChat && (
+      <button
+        className="chat-btn"
+        onClick={() => setShowChat(true)}
+      >
+        💬 Chat
+      </button>
+    )}
+
+    <LiveKitRoom
+      token={token}
+      serverUrl={url}
+      connect={true}
+      video={true}
+      audio={true}
+      onDisconnected={onLeave}
+    >
+      <VideoConference />
+    </LiveKitRoom>
+
+    {showChat && (
+      <Chat
+        roomId={roomId}
+        username={username}
+        onClose={() => setShowChat(false)}
+      />
+    )}
+
+  </div>
+);
 }
 
 export default Room;
