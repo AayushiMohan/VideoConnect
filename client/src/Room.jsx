@@ -5,6 +5,7 @@ import {
 } from "@livekit/components-react"
 import "@livekit/components-styles"
 import Chat from "./Chat"
+import "./Room.css"
 
 function Room({ roomId, username, onLeave }) {
   const [token, setToken] = useState(null)
