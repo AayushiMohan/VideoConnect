@@ -20,7 +20,10 @@ function Chat({ roomId, username, onClose }) {
   };
 
   useEffect(() => {
-    socket.emit("join-room", roomId);
+    socket.emit("join-room", {
+    room: roomId,
+    username: username
+   })
 
     socket.on("receive-message", ({ message, sender }) => {
       setMessages((prev) => [
