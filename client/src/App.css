@@ -55,6 +55,8 @@ body {
   font-weight: 700;
   color: white;
   margin-bottom: 12px;
+  text-align: center;
+  width: 100%;
 }
 
 .subtitle {
