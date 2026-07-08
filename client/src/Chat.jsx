@@ -20,10 +20,18 @@ function Chat({ roomId, username, onClose }) {
   };
 
   useEffect(() => {
-    socket.emit("join-room", {
-    room: roomId,
-    username: username
-   })
+    socket.emit("join-room", roomId);
+
+    socket.on("receive-message", ({ message, sender }) => {
+      setMessages((prev) => [
+        ...prev,
+        {
+          message,
+          sender,
+          time: getCurrentTime(),
+        },
+      ]);
+    });
 
     socket.on("system-message", ({ text }) => {
       setMessages((prev) => [
@@ -39,6 +47,7 @@ function Chat({ roomId, username, onClose }) {
 
     return () => {
       socket.off("receive-message");
+      socket.off("system-message");
     };
   }, [roomId]);
 
@@ -90,53 +99,55 @@ function Chat({ roomId, username, onClose }) {
           </p>
         )}
 
-      {messages.map((msg, i) => {
+        {messages.map((msg, i) => {
 
-  if (msg.system) {
-    return (
-      <div
-        key={i}
-        className="system-message"
-      >
-        {msg.message}
-      </div>
-    );
-  }
+          if (msg.system) {
+            return (
+              <div
+                key={i}
+                className="system-message"
+              >
+                {msg.message}
+              </div>
+            );
+          }
 
-  const isMe = msg.sender === username;
+          const isMe = msg.sender === username;
 
-  return (
-    <div
-      key={i}
-      className={`message-wrapper ${
-        isMe ? "me" : "other"
-      }`}
-    >
-      <div
-        className={`message-info ${
-          isMe ? "me" : "other"
-        }`}
-      >
-        {isMe ? "You" : msg.sender}
-        {" • "}
-        {msg.time}
-      </div>
+          return (
+            <div
+              key={i}
+              className={`message-wrapper ${
+                isMe ? "me" : "other"
+              }`}
+            >
+              <div
+                className={`message-info ${
+                  isMe ? "me" : "other"
+                }`}
+              >
+                {isMe ? "You" : msg.sender}
+                {" • "}
+                {msg.time}
+              </div>
 
-      <div
-        className={`message-bubble ${
-          isMe ? "me" : "other"
-        }`}
-      >
-        {msg.message}
-      </div>
-    </div>
-  );
-})}
+              <div
+                className={`message-bubble ${
+                  isMe ? "me" : "other"
+                }`}
+              >
+                {msg.message}
+              </div>
+            </div>
+          );
+        })}
 
         <div ref={messagesEndRef} />
+
       </div>
 
       <div className="chat-input-area">
+
         <input
           className="chat-input"
           placeholder="Type a message..."
@@ -153,6 +164,7 @@ function Chat({ roomId, username, onClose }) {
         >
           Send
         </button>
+
       </div>
 
     </div>
