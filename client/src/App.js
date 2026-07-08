@@ -92,18 +92,7 @@ function App() {
        <div className="feature-item">Screen Share</div>
        <div className="feature-item">Real-time Chat</div>
        <div className="feature-item">50 Participants</div>
-      </div>
-  <div className="invite-section">
-  <button
-    className="invite-btn"
-    onClick={() => {
-      navigator.clipboard.writeText(roomId);
-      alert("Invite code copied!");
-    }}
-  >
-    📋 Copy Invite Code
-  </button>
-</div>           
+      </div>        
 
       </div>
     </div>
