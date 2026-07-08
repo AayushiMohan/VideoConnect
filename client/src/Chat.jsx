@@ -90,36 +90,48 @@ function Chat({ roomId, username, onClose }) {
           </p>
         )}
 
-        {messages.map((msg, i) => {
-          const isMe = msg.sender === username;
+      {messages.map((msg, i) => {
 
-          return (
-            <div
-              key={i}
-              className={`message-wrapper ${
-                isMe ? "me" : "other"
-              }`}
-            >
-              <div
-                className={`message-info ${
-                  isMe ? "me" : "other"
-                }`}
-              >
-                {isMe ? "You" : msg.sender}
-                {" • "}
-                {msg.time}
-              </div>
+  if (msg.system) {
+    return (
+      <div
+        key={i}
+        className="system-message"
+      >
+        {msg.message}
+      </div>
+    );
+  }
 
-              <div
-                className={`message-bubble ${
-                  isMe ? "me" : "other"
-                }`}
-              >
-                {msg.message}
-              </div>
-            </div>
-          );
-        })}
+  const isMe = msg.sender === username;
+
+  return (
+    <div
+      key={i}
+      className={`message-wrapper ${
+        isMe ? "me" : "other"
+      }`}
+    >
+      <div
+        className={`message-info ${
+          isMe ? "me" : "other"
+        }`}
+      >
+        {isMe ? "You" : msg.sender}
+        {" • "}
+        {msg.time}
+      </div>
+
+      <div
+        className={`message-bubble ${
+          isMe ? "me" : "other"
+        }`}
+      >
+        {msg.message}
+      </div>
+    </div>
+  );
+})}
 
         <div ref={messagesEndRef} />
       </div>
